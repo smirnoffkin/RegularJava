@@ -20,8 +20,8 @@ public class Regular {
     }
 
     public boolean isValidUrl(String url){
-        String filter = "((http(s)?://)?(www\\.)?)?[a-zA-Z0-9@:%._+~#=/][a-zA-Z0-9@:%._+~#=/-]{2,255}" +
-                        "[a-zA-Z0-9@:%._+~#=/]\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%_+.~#?&/=]*)";
+        String filter = "^(https?://)?(www\\.)?([a-zA-Z0-9][a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,}(:\\d+)?(/[\\w\\-./]*)" +
+                        "*(\\?[\\w=&\\-]*)?(#[\\w\\-]*)?$";
         Pattern pattern = Pattern.compile(filter);
         Matcher matcher = pattern.matcher(url);
         return matcher.matches();
